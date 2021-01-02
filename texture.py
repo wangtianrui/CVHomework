@@ -96,10 +96,6 @@ def glcm_conv(win_len, img, stride=(1, 1), gray_level=25, ker_s=5):
                                 glcm(input_win=win_wrap_img[w][h], step_x=-1, step_y=1, gray_level=gray_level)) / 4
             glcm_4_direction = glcm_4_direction / np.sum(glcm_4_direction)
 
-            if w == 25 and h == 25:
-                show_gray_img(glcm_4_direction)
-                print()
-
             entropy = -np.sum(glcm_4_direction * np.log(glcm_4_direction + eps))
             energy = np.sum(glcm_4_direction ** 2)
 
