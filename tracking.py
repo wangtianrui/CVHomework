@@ -4,6 +4,7 @@
 import cv2, os
 import numpy as np
 import matplotlib.pyplot as plt
+import time as T
 
 global img, cut_img
 global point1, point2
@@ -76,6 +77,7 @@ def mean_shift(car_frame, top_y, top_x, n_rows, n_cols):
 
     # 迭代处理图
     for pic_i in range(2, 101):
+        start = T.time()
         if pic_i < 10:
             pic_name = "car00%d.bmp" % pic_i
         elif 100 > pic_i >= 10:
@@ -122,6 +124,8 @@ def mean_shift(car_frame, top_y, top_x, n_rows, n_cols):
         show_result(im_i, [top_x, top_y], n_rows, n_cols,
                     os.path.join(r"./data/tracking/save/", '%s.jpg' % pic_name.split('.')[0]))
         points_top[pic_i - 1] += np.array([top_x, top_y])
+        cost = T.time() - start
+        print("单张耗时:", cost, "每秒处理:", 1 / cost)
     print(points_top)
 
 
