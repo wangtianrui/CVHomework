@@ -11,6 +11,7 @@ __pycache__/
 *.svg
 *.jpg
 *.csv
+*.bmp
 *.wav
 *.mp3
 *.ckpt

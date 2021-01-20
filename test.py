@@ -40,16 +40,21 @@ def argmax_2d(array):
 # print(squares)
 
 
-def split(array, win):
-    array_w, array_h = array.shape
-    win_w, win_h = win.shape
-    strides = sudoku.itemsize * np.array([array_h * 3, 1 * 3, array_h, 1])
-    return np.lib.stride_tricks.as_strided(array,
-                                           shape=[(array_w - win_w) // 3 + 1, (array_h - win_h) // 3 + 1, win_w, win_h],
-                                           strides=strides)
-
-
-test = split(sudoku, win=np.zeros([3, 4]))
-print(test)
+# def split(array, win):
+#     array_w, array_h = array.shape
+#     win_w, win_h = win.shape
+#     strides = sudoku.itemsize * np.array([array_h * 3, 1 * 3, array_h, 1])
+#     return np.lib.stride_tricks.as_strided(array,
+#                                            shape=[(array_w - win_w) // 3 + 1, (array_h - win_h) // 3 + 1, win_w, win_h],
+#                                            strides=strides)
+#
+#
+# test = split(sudoku, win=np.zeros([3, 4]))
+# print(test)
 # test_array = np.array([1, 2, 3, 4, 5, 6]).reshape([-1, 1, 1]).repeat(7, 1).repeat(9, 2)
 # print(test_array - sudoku)
+for i in range(10):
+    if 1:
+        print("1")
+else:
+    print("2")
